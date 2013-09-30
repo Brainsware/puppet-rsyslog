@@ -15,9 +15,24 @@
 require 'spec_helper'
 
 describe 'rsyslog', :type => :class do
-  let(:title) { 'rsyslog' }
+  context "On an Ubuntu install install rsyslog" do
+    let :facts do {
+      :operatingsystem => 'Debian'
+    } end
+    let(:title) { 'rsyslog' }
 
-  it { should contain_package('rsyslog').with_ensure('installed') }
-  it { should contain_service('rsyslog').with_ensure('running') }
+    it { should contain_package('rsyslog').with_ensure('installed') }
+    it { should contain_service('rsyslog').with_ensure('running') }
+  end
+
+  context "On an RHEL install install rsyslog" do
+    let :facts do {
+      :operatingsystem => 'RedHat'
+    } end
+    let(:title) { 'rsyslog' }
+
+    it { should contain_package('rsyslog').with_ensure('installed') }
+    it { should contain_service('rsyslog').with_ensure('running') }
+  end
 
 end
