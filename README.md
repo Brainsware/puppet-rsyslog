@@ -1,6 +1,6 @@
 # Puppet Module for rSyslogd
 
-manage installation and configuraiton of rsyslogd v5.
+manage installation and configuration of rsyslogd v5.
 
 
 ## Documentation
